@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title = 'Shoping Card';
-  numberItems : number = 4;
+  @Input() numberItems : number = 0; // Nhận giá trị đầu vào từ component khác
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
 }

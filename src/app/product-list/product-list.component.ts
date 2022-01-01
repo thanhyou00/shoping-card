@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../product.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -9,27 +8,22 @@ import { Product } from '../product.model';
 })
 export class ProductListComponent implements OnInit {
 
-  products : Product[] = [
-    {
-      id : '1',
-      name : 'iPhone X 64GB ',
-      description : 'Description for product item number 1',
-      thumbnail : '../../assets/images/iphone_x_64gb_3.jpg',
-      price : 115.99,
-      quantity : 2
-    },
-    {
-      id : '2',
-      name : 'Apple iPhone 13 256GB Pink',
-      description : 'Description for product item number 2',
-      thumbnail : '../../assets/images/Pink.png',
-      price : 15.99,
-      quantity : 2
-    }
-  ];
-  constructor() { }
-
+  @Input() product : any;
+  @Input() sumItem : any;
   ngOnInit(): void {
+  }
+
+  removeProduct(paramId : string) : void {
+    const index = this.product.findIndex((product: { id: string; }) => product.id === paramId)
+    if(index !== -1) {
+      this.product.splice(index, 1)
+    }
+  }
+
+  updateQuantity(element : any){
+    (element.value>=1&&element.value<=99)?console.log(element.value):(console.log('Invalid !'))
+    const sum =element.value + element.value;
+    console.log(sum);
   }
 
 }
