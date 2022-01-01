@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title = 'Shoping Card';
+  numberItems : number = 4;
 
   constructor() { }
 
